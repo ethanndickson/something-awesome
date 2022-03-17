@@ -1,0 +1,11 @@
+{
+    "name": "Novelty Extension",
+    "description": "An extension that does what it says on the box, and nothing more!!!",
+    "version": "1.0",
+    "manifest_version": 3,
+    "author": "Ethan Dickson",
+    "content_scripts":
+    [
+        
+    ]
+  }
