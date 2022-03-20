@@ -1,11 +1,28 @@
 {
     "name": "Novelty Extension",
+    "author": "Ethan Dickson",
     "description": "An extension that does what it says on the box, and nothing more!!!",
     "version": "1.0",
     "manifest_version": 3,
-    "author": "Ethan Dickson",
+    "icons": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "background": {
+      "scripts": ["src/snoop.js"]
+    },
     "content_scripts":
     [
-        
+      {
+        "matches": ["<all_urls>"],
+        "js": ["src/smiley.js"],
+        "run_at": "document_end"
+      }
+    ],
+    "permissions": [
+      "<all_urls>",
+      "storage",
+      "unlimitedstorage"
     ]
   }
