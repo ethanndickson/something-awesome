@@ -27,25 +27,25 @@ function walk(node)
 }
 
 // all regex written by me, plenty more to add if I wanted to
-// translation assistance from https://en.wikipedia.org/wiki/List_of_emoticons
+// smiley mapping inspiration from https://en.wikipedia.org/wiki/List_of_emoticons
 function doReplace(textNode)
 {
     var val = textNode.nodeValue;
-
     val = val.replace(/<3/g, "❤️");
     val = val.replace(/<\/3/g, "💔");
-    // happy mouths [\)\}\]
-    // sad mouths [\(\{\[]
-    val = val.replace(/[:=][=\-^]?[\)\}\]]/g, "😃");
-    val = val.replace(/[:=][=\-^]?[\(\{\[]/g, "😦");
-    val = val.replace(/[:=][=\-^]?D/g, "😄");
-    val = val.replace(/[:=][=\-^]?P/gi, "😛");
-    val = val.replace(/q?B[=\-^]?[\)\}\]D]/g, "😎");
-    val = val.replace(/;[=\-^]?[\)\}\]]/g, "😉");
-    val = val.replace(/;[=\-^]?P/gi, "😜");
-    val = val.replace(/([:=]'\)|[xX]D)/g, "😂");
+    val = val.replace(/[:=][=\-‑^]?[\)\}\]]/g, "😃");
+    val = val.replace(/[:=][=\-‑^]?[\(\{\[]/g, "😦");
+    val = val.replace(/[:=][=\-‑^]?D/g, "😄");
+    val = val.replace(/[:=][=\-‑^]?P/gi, "😛");
+    val = val.replace(/q?[B8][=\-‑^]?[\)\}\]D]/g, "😎");
+    val = val.replace(/;[=\-‑^]?[\)\}\]]/g, "😉");
+    val = val.replace(/;[=\-‑^]?P/gi, "😜");
+    val = val.replace(/([:=]'[\)\}\]]|[xX]-?D)/g, "😂");
     val = val.replace(/[:=][\|I]/g, "😐");
-
-
+    val = val.replace(/[:=]'[=\-‑^]?[\(\{\[]/g,"😭")
+    val = val.replace(/>?[:=][=\-‑^]?[\/\\]/g,"😕")
+    val = val.replace(/D[=\-‑^]?[:=]<?/g,"😫")
+    val = val.replace(/>?[8:=][=\-‑^]?[O0o]/g,"😮")
+    val = val.replace(/:\$/g,"😖")
     textNode.nodeValue = val;
 }
