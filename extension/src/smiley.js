@@ -1,5 +1,10 @@
 // Since this file gets run on document_end, we don't need to use any events
-walk(document.body);
+chrome.storage.local.get(['enabled'],function(result){
+    if (result.enabled) { walk(document.body) };
+    // if (result.enabled) { alert("I would run now") };
+});
+
+
 // This function traverses the nodes of the DOM and calls doReplace() accordingly
 // Logic borrowed from https://stackoverflow.com/questions/5904914/javascript-regex-to-replace-text-not-in-html-attributes/5904945#5904945
 function walk(node)

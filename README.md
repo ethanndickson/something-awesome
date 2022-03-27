@@ -16,7 +16,7 @@ The goal of this section is to harvest user keystrokes and form input, including
 
 This data will then be sent to a remote server, also included in this project, where it is categorised and stored, such that multiple victims of the attack can be tracked easily.
 
-If a user were to disable the novelty aspect of the extension via the popup, the extension will continue to track and send user input back to the server.
+If a user were to disable the novelty aspect of the extension via the popup menu, the extension will continue to track and send user input back to the server.
 
 
 # Credits
@@ -25,3 +25,7 @@ Twemoji by Twitter are open source emoji.
 Copyright 2020 Twitter, Inc and other contributors
 
 Graphics licensed under CC-BY 4.0: https://creativecommons.org/licenses/by/4.0/
+
+Roboto by Google Fonts
+
+Licensed under the Apache License, Version 2.0.

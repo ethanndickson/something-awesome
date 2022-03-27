@@ -10,7 +10,15 @@
       "128": "icons/icon128.png"
     },
     "background": {
-      "scripts": ["src/snoop.js"]
+      "service_worker": "src/settings.js"
+    },
+    "action": {
+      "default_popup": "src/menu.html",
+      "default_icon": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+      }
     },
     "content_scripts":
     [
@@ -21,8 +29,6 @@
       }
     ],
     "permissions": [
-      "<all_urls>",
-      "storage",
-      "unlimitedstorage"
+      "storage"
     ]
   }
