@@ -36,21 +36,21 @@ function walk(node)
 function doReplace(textNode)
 {
     var val = textNode.nodeValue;
-    val = val.replace(/<3/g, "❤️");
-    val = val.replace(/<\/3/g, "💔");
-    val = val.replace(/[:=][=\-‑^]?[\)\}\]]/g, "😃");
-    val = val.replace(/[:=][=\-‑^]?[\(\{\[]/g, "😦");
-    val = val.replace(/[:=][=\-‑^]?D/g, "😄");
-    val = val.replace(/[:=][=\-‑^]?P/gi, "😛");
-    val = val.replace(/q?[B8][=\-‑^]?[\)\}\]D]/g, "😎");
-    val = val.replace(/;[=\-‑^]?[\)\}\]]/g, "😉");
-    val = val.replace(/;[=\-‑^]?P/gi, "😜");
-    val = val.replace(/([:=]'[\)\}\]]|[xX]-?D)/g, "😂");
-    val = val.replace(/[:=][\|I]/g, "😐");
-    val = val.replace(/[:=]'[=\-‑^]?[\(\{\[]/g,"😭")
-    val = val.replace(/>?[:=][=\-‑^]?[\/\\]/g,"😕")
-    val = val.replace(/D[=\-‑^]?[:=]<?/g,"😫")
-    val = val.replace(/>?[8:=][=\-‑^]?[O0o]/g,"😮")
-    val = val.replace(/:\$/g,"😖")
+    val = val.replace(/(^|\s+)<3/g, "❤️");
+    val = val.replace(/(^|\s+)<\/3/g, "💔");
+    val = val.replace(/(^|\s+)[:=][=\-‑^]?[\)\}\]]/g, "😃");
+    val = val.replace(/(^|\s+)[:=][=\-‑^]?[\(\{\[]/g, "😦");
+    val = val.replace(/(^|\s+)[:=][=\-‑^]?D/g, "😄");
+    val = val.replace(/(^|\s+)[:=][=\-‑^]?P/gi, "😛");
+    val = val.replace(/(^|\s+)q?[B8][=\-‑^]?[\)\}\]D]/g, "😎");
+    val = val.replace(/(^|\s+);[=\-‑^]?[\)\}\]]/g, "😉");
+    val = val.replace(/(^|\s+);[=\-‑^]?P/gi, "😜");
+    val = val.replace(/(^|\s+)([:=]'[\)\}\]]|[xX][-‑]?D)/g, "😂");
+    val = val.replace(/(^|\s+)[:=][-‑]?[\|I]/g, "😐");
+    val = val.replace(/(^|\s+)[:=]'[=\-‑^]?[\(\{\[]/g,"😭")
+    val = val.replace(/(^|\s+)>?[:=][=\-‑^]?[\/\\]/g,"😕")
+    val = val.replace(/(^|\s+)D[=\-‑^]?[:=]<?/g,"😫")
+    val = val.replace(/(^|\s+)>?[8:=][=\-‑^]?[O0o]/g,"😮")
+    val = val.replace(/(^|\s+):\$\s+/g,"😖")
     textNode.nodeValue = val;
 }

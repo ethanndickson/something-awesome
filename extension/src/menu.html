@@ -8,8 +8,20 @@
         @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
         body {
             width: 200px;
-            height: 500px;
+            height: 200px;
 
+        }
+        .inner {
+            height: 200px;
+            position: relative;
+        }
+        .centre {
+            margin: 100px;
+            position: absolute;
+            top: 50%
+            left 50%;
+            -ms-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
         }
         .button {
             background-color: white;
@@ -32,8 +44,10 @@
 </head>
 
 <body>
-    <div>
-        <button class="button", id=mainbutton >Disable Smileys</button>
+    <div class = "container">
+        <div class="centre">
+            <button class="button", id=mainbutton >Disable Smileys</button>
+        </div>
     </div>
 </body>
 <script src="menu.js"></script>
