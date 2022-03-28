@@ -21,11 +21,18 @@ If a user were to disable the novelty aspect of the extension via the popup menu
 
 # Credits
 Twemoji by Twitter are open source emoji. 
+- Copyright 2020 Twitter, Inc and other contributors
 
-Copyright 2020 Twitter, Inc and other contributors
-
-Graphics licensed under CC-BY 4.0: https://creativecommons.org/licenses/by/4.0/
+- Graphics licensed under CC-BY 4.0: https://creativecommons.org/licenses/by/4.0/
 
 Roboto by Google Fonts
+- Licensed under the Apache License, Version 2.0.
 
-Licensed under the Apache License, Version 2.0.
+Bootstrap 5.1.3
+- Licensed under the MIT License
+
+JQuery 3.6.0
+- Licensed under the MIT License
+
+Floating UI / Popper 
+- Licensed under the MIT License
