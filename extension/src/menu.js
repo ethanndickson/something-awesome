@@ -1,11 +1,11 @@
-const mainswitch = document.getElementById("mainswitch");
-
+const mainbutton = document.getElementById("mainbutton");
+// ge & set starting colour 
 
 // toggle enabled bool in storage 
-mainswitch.addEventListener("change", (ev) => {
-    // chrome.storage.local.get(['enabled'],function(result){
-    //     chrome.storage.local.set({ enabled: !(result.enabled) });
-    // });
-    chrome.storage.local.set({enabled: this.checked });
-    alert("changed");
+mainbutton.addEventListener("click", (ev) => {
+    chrome.storage.local.get(['enabled'],function(result){
+        chrome.storage.local.set({ enabled: !(result.enabled) });
+        if (result.enabled) { mainbutton.style.borderColor = 'lightgreen' } // green
+        else { mainbutton.style.borderColor = 'red' }
+    });
 });

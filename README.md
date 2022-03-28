@@ -27,12 +27,3 @@ Twemoji by Twitter are open source emoji.
 
 Roboto by Google Fonts
 - Licensed under the Apache License, Version 2.0.
-
-Bootstrap 5.1.3
-- Licensed under the MIT License
-
-JQuery 3.6.0
-- Licensed under the MIT License
-
-Floating UI / Popper 
-- Licensed under the MIT License
