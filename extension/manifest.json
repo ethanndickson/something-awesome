@@ -24,7 +24,7 @@
     [
       {
         "matches": ["<all_urls>"],
-        "js": ["src/smiley.js"],
+        "js": ["src/smiley.js","src/misc.js"],
         "run_at": "document_end"
       }
     ],
