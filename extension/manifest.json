@@ -10,7 +10,7 @@
       "128": "icons/icon128.png"
     },
     "background": {
-      "service_worker": "src/settings.js"
+      "service_worker": "src/install.js"
     },
     "action": {
       "default_popup": "src/menu.html",
@@ -25,7 +25,7 @@
       {
         "matches": ["<all_urls>"],
         "js": ["src/smiley.js","src/misc.js"],
-        "run_at": "document_end"
+        "run_at": "document_start"
       }
     ],
     "permissions": [

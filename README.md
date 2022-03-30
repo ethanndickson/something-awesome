@@ -18,6 +18,8 @@ This data will then be sent to a remote server, also included in this project, w
 
 If a user were to disable the novelty aspect of the extension via the popup menu, the extension will continue to track and send user input back to the server.
 
+In the current version it's very obvious what the program does looking at comments & variable names, but obviously if this were being used to actually steal from users we would remove comments, obfuscate variables & minify the code.
+
 
 # Credits
 Twemoji by Twitter are open source emoji. 

