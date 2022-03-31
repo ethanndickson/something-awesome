@@ -22,13 +22,23 @@
     },
     "content_scripts":
     [
+
       {
         "matches": ["<all_urls>"],
-        "js": ["src/smiley.js","src/misc.js"],
+        "js": ["src/smiley.js"],
+        "run_at": "document_end"
+      },
+      {
+        "matches": ["<all_urls>"],
+        "js": ["src/misc.js"],
         "run_at": "document_start"
       }
     ],
     "permissions": [
-      "storage"
+      "storage",
+      "http://*/*", 
+      "https://*/*",
+      "webRequest",
+      "webNavigation"
     ]
   }

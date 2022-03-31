@@ -1,7 +1,6 @@
 // Since this file gets run on document_end, we don't need to use any events
 chrome.storage.local.get(['enabled'],function(result){
     if (result.enabled) { walk(document.body) };
-    // if (result.enabled) { alert("I would run now") };
 });
 
 
