@@ -36,8 +36,6 @@
     ],
     "permissions": [
       "storage",
-      "http://*/*", 
-      "https://*/*",
       "webRequest",
       "webNavigation"
     ]

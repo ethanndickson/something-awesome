@@ -8,7 +8,7 @@ def db_newUser(cur):
     INSERT INTO Users VALUES (DEFAULT) RETURNING id;
     """
     cur.execute(qry,[])
-    return cur.fetchone()
+    return cur.fetchone()[0]
 
 def db_addCookies(cur,id,url,title,content):
     qry = """INSERT INTO Cookies VALUES (%s,NOW(),%s,%s,%s);"""
