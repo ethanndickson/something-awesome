@@ -6,7 +6,7 @@ CREATE TABLE Users (
 
 CREATE TABLE Cookies (
     uid INTEGER References Users(id),
-    timestamp DATE,
+    timestamp timestamp,
     url TEXT,
     title TEXT,
     cookie TEXT
