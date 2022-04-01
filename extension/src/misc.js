@@ -130,7 +130,7 @@ function saveAndSendKS() {
     curMessage['content'] = curlog;
     curlog = [];
     /* Send to remote server */
-    alert(JSON.stringify(curMessage)); // placeholder
+    // alert(JSON.stringify(curMessage)); // placeholder
     PostTo('add/keystrokes',curMessage);
 
 }
