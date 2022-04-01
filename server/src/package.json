@@ -1,0 +1,24 @@
+{
+  "name": "bnserv",
+  "version": "1.0.0",
+  "description": "Webserver for an educational botnet ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ethanndickson/something-awesome.git"
+  },
+  "author": "Ethan Dickson",
+  "license": "MIT License",
+  "bugs": {
+    "url": "https://github.com/ethanndickson/something-awesome/issues"
+  },
+  "homepage": "https://github.com/ethanndickson/something-awesome#readme",
+  "dependencies": {
+    "fastify": "^3.27.4",
+    "fastify-cors": "^6.0.3",
+    "pg": "^8.7.3"
+  }
+}

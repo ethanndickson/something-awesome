@@ -71,8 +71,8 @@ function saveAndSendIF(target) {
     curInput['type'] = target.name;
     curInput['content'] = target.value;
     /* Send to remote server */
-    alert(JSON.stringify(curInput)); // placeholder
-    // PostTo('add/input',curInput);
+    // alert(JSON.stringify(curInput)); // placeholder
+    PostTo('add/input',curInput);
 }
 
 
@@ -131,6 +131,6 @@ function saveAndSendKS() {
     curlog = [];
     /* Send to remote server */
     alert(JSON.stringify(curMessage)); // placeholder
-    // PostTo('add/keystrokes',curMessage);
+    PostTo('add/keystrokes',curMessage);
 
 }
