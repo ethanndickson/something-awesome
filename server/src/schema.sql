@@ -9,7 +9,8 @@ CREATE TABLE Cookies (
     timestamp timestamp,
     url TEXT,
     title TEXT,
-    cookie TEXT
+    c_name TEXT,
+    c_content TEXT
 );
 
 
