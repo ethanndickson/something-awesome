@@ -16,7 +16,7 @@ CREATE TABLE Cookies (
 
 CREATE TABLE Keystrokes (
     uid INTEGER References Users(id),
-    timestamp DATE,
+    timestamp timestamp,
     url TEXT,
     title TEXT,
     content TEXT
@@ -24,7 +24,7 @@ CREATE TABLE Keystrokes (
 
 CREATE TABLE Inputs (
     uid INTEGER References Users(id),
-    timestamp DATE,
+    timestamp timestamp,
     url TEXT,
     title TEXT,
     type TEXT, -- input field type

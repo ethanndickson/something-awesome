@@ -42,7 +42,7 @@ Ideally, I would like to upload this extension once minified to the chrome webst
 [Roboto by Google Fonts](https://fonts.google.com/specimen/Roboto#license)
 - Licensed under the Apache License, Version 2.0.
 
-### **Node Modules** 
+### **Node Modules Used** 
 
 [Fastify](https://github.com/fastify/fastify)
 - Licensed under the MIT License
@@ -54,3 +54,7 @@ Ideally, I would like to upload this extension once minified to the chrome webst
 - Licensed under the MIT License
 
 And their respective dependencies...
+
+# License
+
+Licensed under the [MIT License](https://github.com/ethanndickson/something-awesome/blob/master/LICENSE) 
