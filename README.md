@@ -30,6 +30,23 @@ The Google Chrome webstore policies do not allow concealed functionality, but [a
 Ideally, I would like to upload this extension once minified to the chrome webstore, however I do not have (and will almost certainly not obtain) Google's explicit permission to upload malicious, albeit non-functional without a server, code to their webstore.
 
 
+# Installing
+
+Once you've cloned the repo:
+
+## Server
+1. Install PostgreSQL 11 or later - create a DB called `server` - insert the schema: `psql server -f src/server/schema.sql`
+2. Modify `server/src/app.js:59` to use whatever port you would like - 3000 by default.
+3. From `server/src` run `npm install` to install node modules
+4. From `server/src` run `node app.js` to start the server
+
+## Extension
+1. Go to `chrome://extensions` in Google Chrome
+2. Toggle 'Developer Mode' on in settings
+3. Select 'Load Unpacked Extension' and select the `extension` folder.
+
+Will throw errors in the `chrome://extensions` page if it can't fetch a client ID from the server, presumably if the server doesn't exist.
+
 # Credits
 
 ### **Visuals**
