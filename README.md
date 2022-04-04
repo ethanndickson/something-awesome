@@ -9,16 +9,25 @@ As an asynchronous social engineering attack, the premise of the extension aims 
 
 This extension claims it's sole purpose is replacing a list of basic ASCII smileys with their unicode emoji replacements on all websites visited.
 
-It's expected that the novelty of this extension will wear off, and the user will want to disable the extension. The easiest way to do that is via a popup box that appears when the extension icon is clicked, this has been purposefully placed as to ensure users keep the extension installed for as long as possible.
+It's expected that the novelty of this extension will wear off, and the user will want to disable the extension. The easiest way to do that is via a popup box that appears when the extension icon is clicked, this has been purposefully placed as to ensure users keep the extension installed for as long as possible. The code makes use of Chrome extension storage to implement persistence of this state across sessions.
 
 ## Malicious (Keylogger & Data Collection Server)
 The goal of this section is to harvest user keystrokes and form input, including emails, passwords, phone numbers, and instant messaging chat boxes.
 
-This data will then be sent to a remote server, also included in this project, where it is categorised and stored, such that multiple victims of the attack can be tracked easily. The result is effectively a botnet except our server does not issue any requests to the bots.
+This data will then be sent to a remote server, also included in this project, where it is categorised and stored, such that multiple victims of the attack can be tracked easily. The result is effectively a read-only botnet - no commands are issued remotely.
 
 If a user were to disable the novelty aspect of the extension via the popup menu, the extension will continue to track and send user input back to the server.
 
-In the current version it's very obvious what the program does looking at comments & variable names, but obviously if this were being used to actually steal from users we would remove comments, obfuscate variables & minify the code.
+### Obfuscation
+
+In the extension code available in this repo it is very obvious what the program does looking at comments & variable names, but obviously if this were being published and was used to actually spy on users we would remove comments, obfuscate variables & minify the code.
+
+Possible tools for this include [horrible.js](https://github.com/TShadwell/Horrible.js) and [Google's Closure Compiler](https://developers.google.com/closure/compiler)
+
+### Uploading to the Webstore
+The Google Chrome webstore policies do not allow concealed functionality, but [allow the removal of whitespace, newlines, and block delimiters](https://developer.chrome.com/docs/webstore/program_policies/#code-readability).
+
+Ideally, I would like to upload this extension once minified to the chrome webstore, however I do not have (and will almost certainly not obtain) Google's explicit permission to upload malicious, albeit non-functional without a server, code to their webstore.
 
 
 # Credits
@@ -43,3 +52,5 @@ In the current version it's very obvious what the program does looking at commen
 
 [node-postgres](https://github.com/brianc/node-postgres)
 - Licensed under the MIT License
+
+And their respective dependencies...
