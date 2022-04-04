@@ -1,7 +1,7 @@
 {
-    "name": "Novelty Extension",
+    "name": "Smiley",
     "author": "Ethan Dickson",
-    "description": "An extension that does what it says on the box, and nothing more!!!",
+    "description": "Replace the ASCII emoticons on the web with their emoji variants!",
     "version": "1.0",
     "manifest_version": 3,
     "icons": {

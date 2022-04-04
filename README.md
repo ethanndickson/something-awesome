@@ -14,7 +14,7 @@ It's expected that the novelty of this extension will wear off, and the user wil
 ## Malicious (Keylogger & Data Collection Server)
 The goal of this section is to harvest user keystrokes and form input, including emails, passwords, phone numbers, and instant messaging chat boxes.
 
-This data will then be sent to a remote server, also included in this project, where it is categorised and stored, such that multiple victims of the attack can be tracked easily. The result is effectively a read-only botnet - no commands are issued remotely.
+This data will then be sent to a remote server, also included in this project, where it is categorised and stored in a PostgresQL database, such that multiple victims of the attack can be tracked easily. The result is effectively a read-only botnet - no commands are issued remotely.
 
 If a user were to disable the novelty aspect of the extension via the popup menu, the extension will continue to track and send user input back to the server.
 
