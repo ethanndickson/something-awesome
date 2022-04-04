@@ -20,7 +20,7 @@ If a user were to disable the novelty aspect of the extension via the popup menu
 
 ### Obfuscation
 
-In the extension code available in this repo it is very obvious what the program does looking at comments & variable names, but obviously if this were being published and was used to actually spy on users we would remove comments, obfuscate variables & minify the code.
+The purpose of the extension code has not been concealed in any way. If this were being published and used to actually spy on users we would remove comments, obfuscate variables & minify the code.
 
 Possible tools for this include [horrible.js](https://github.com/TShadwell/Horrible.js) and [Google's Closure Compiler](https://developers.google.com/closure/compiler)
 
