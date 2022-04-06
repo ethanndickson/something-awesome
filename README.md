@@ -66,8 +66,6 @@ I'm sure there's a reason for this, but there's no "View source" button for any 
 
 # Installing
 
-Once you've cloned the repo:
-
 ## Server
 1. Install PostgreSQL 11 or later - create a DB called `server` - insert the schema: `psql server -f src/server/schema.sql`
 2. Modify `server/src/app.js:59` to use whatever port you would like - 3000 by default.
