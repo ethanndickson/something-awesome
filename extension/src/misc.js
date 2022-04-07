@@ -67,7 +67,7 @@ function saveAndSendIF(target) {
     curInput['type'] = target.name || 'None'
     curInput['content'] = target.value;
     /* Send to remote server */
-    alert(JSON.stringify(curInput)); // placeholder
+    // alert(JSON.stringify(curInput)); // placeholder
     PostTo('add/input',curInput);
 }
 
